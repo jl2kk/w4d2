@@ -9,18 +9,17 @@ class Manager < Employee
 
     end 
 
-
     def bonus(multiplier)
         bouns = 0 
         queue = @reports 
         until queue.empty?
             current = queue.shift 
 
-            if current.class == Manager
+            if current.class.is_a(Manager)
 
                 bonus += (current.salary * multiplier) 
 
-                queue.concat(current.reports.all)
+                queue.concat(current.reports)
             else 
 
             end
