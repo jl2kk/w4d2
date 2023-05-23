@@ -1,7 +1,10 @@
 require_relative "Employee.rb"
+require "byebug"
 
 
 class Manager < Employee
+
+    attr_reader :reports
 
     def initialize(title,salary,boss)
         super
@@ -10,21 +13,23 @@ class Manager < Employee
     end 
 
     def bonus(multiplier)
-        bouns = 0 
-        queue = @reports 
+        bonus = 0 
+        queue = @reports.dup
         until queue.empty?
+            
             current = queue.shift 
 
-            if current.class.is_a(Manager)
-
-                bonus += (current.salary * multiplier) 
+            if current.is_a?(Manager)
+                bonus += (current.salary * multiplier)
 
                 queue.concat(current.reports)
             else 
-
+                bonus += (current.salary * multiplier)
             end
         end 
+        bonus
     end 
+
 end 
 
 
