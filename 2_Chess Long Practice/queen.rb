@@ -3,9 +3,11 @@ require_relative "slideable.rb"
 
 
 class Queen < Piece
+    include Slideable
+    
 
     def move_dirs
-     include Steppable
+        diagonal_dirs.dup.concat(horizontal_dirs.dup)
     end
  
     def symbol

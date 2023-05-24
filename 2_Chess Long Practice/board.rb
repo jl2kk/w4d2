@@ -1,6 +1,5 @@
 # require_relative "cursor.rb"
 require_relative "null_piece.rb"
-# require "piece.rb"
 require_relative "king.rb"
 require_relative "knight.rb"
 require_relative "pawn.rb"
@@ -40,6 +39,7 @@ class Board
 
         self[end_pos] = self[start_pos]
         self[start_pos] = @null_piece
+        self[end_pos].pos = end_pos
     end
 
     def valid_pos?(pos)
@@ -51,6 +51,18 @@ class Board
         self[pos] = piece
     end 
 
+    # def in_check?(color_check) #white
+    #     all_poss_moves = []
+    #     @grid.each do |row|
+    #         row.each do |piece|
+    #             if piece.color != color_check #check all black pieces
+    #                 all_poss_moves << piece.moves
+    #             end
+    #         end
+    #     end #array of all poss black pieces' moves
+        
+    #    all_poss_moves.include?(King.pos)
+    # end
 
     def create_board
         grid.each_with_index do |row,row_idx|
@@ -75,20 +87,11 @@ class Board
             end 
         end 
 
-        # [0,1].each do |row_idx|
-        #     grid[row_idx].each {|piece| piece.color = :black}
-        # end 
-        # [6,7].each do |row_idx|
-        #     grid[row_idx].each {|piece| piece.color = :white}
-        # end 
+        [0,1].each do |row_idx|
+            grid[row_idx].each {|piece| piece.color = :black}
+        end 
+        [6,7].each do |row_idx|
+            grid[row_idx].each {|piece| piece.color = :white}
+        end 
     end
 end
-
-# b = Board.new
-
-# start_pos = [2,3]
-# end_pos = [0,0]
-# # debugger
-# b[start_pos] = "HELLO I AM A ROOK"
-# b.move_piece('black',start_pos,end_pos)
-# p b

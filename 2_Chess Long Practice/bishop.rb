@@ -3,11 +3,12 @@ require_relative "slideable.rb"
 
 
 class Bishop < Piece
-
-    def move_dirs
-     include Steppable
-    end
+    include Slideable
  
+    def move_dirs
+        diagonal_dirs
+    end
+
     def symbol
      "♗"
     end

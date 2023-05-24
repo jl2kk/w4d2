@@ -1,12 +1,13 @@
 require_relative "piece.rb"
-require_relative "steppable.rb"
+require_relative "stepable.rb"
 
 class Knight < Piece
+    include Stepable
 
     def move_dirs
-     include Steppable
+        horse_step
     end
- 
+
     def symbol
      "♘"
     end

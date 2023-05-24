@@ -1,7 +1,7 @@
-# require_relative "piece.rb"
+require_relative "piece.rb"
 require "singleton"
 
-class NullPiece
+class NullPiece < Piece
     include Singleton
 
     def initialize
@@ -9,7 +9,7 @@ class NullPiece
     end
 
     def symbol
-        nil # maybe replace with underscore or something?
+        nil
     end
 
     def inspect

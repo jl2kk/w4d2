@@ -1,6 +1,8 @@
-require_relative 'board.rb'
+# require_relative 'board.rb'
 
 class Piece
+    attr_accessor :color, :pos
+
     def initialize(color,board,pos)
         @color = color
         @board = board
@@ -11,13 +13,6 @@ class Piece
     def empty?(pos)
         board[pos].is_a?(NullPiece)
     end
-
-    # def valid_moves
-    #     poss_moves = []
-    #     #INCOMPLETE METHODS - THESE ARE JUST CONCEPTUAL
-    #     poss_moves <<  EACH [pos + steppable moves for that piece]
-    #     poss_moves.select {the ones where it wont error out}
-    # end
 
     # def pos=(val)
     #     @board.move_piece(@color,@pos,val)
