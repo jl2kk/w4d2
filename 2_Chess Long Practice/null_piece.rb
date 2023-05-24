@@ -13,6 +13,6 @@ class NullPiece
     end
 
     def inspect
-        p "Null Piece"
+        p " "
     end
 end

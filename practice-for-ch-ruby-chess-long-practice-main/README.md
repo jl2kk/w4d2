@@ -84,7 +84,7 @@ can implement `#moves`, but it needs to know what directions a piece can move in
 (diagonally, horizontally/vertically, or both). Classes that `include` the
 module `Slideable` (`Bishop`/`Rook`/`Queen`) will need to implement a method
 `#move_dirs`, which `#moves` will use. For more information on modules see the
-Modules reading in the sidebar.
+Modules reading in the sidebar..
 
 Your `Piece` will need to (1) track its position and (2) hold a reference to the
 `Board`. Classes that `include Slideable` in particular need the `Board` so they
